@@ -17,7 +17,13 @@ class App extends Component {
   };
   render() {
     return (
-      <button>Toggle Mode</button>
+      <React.Fragment>
+      <button onClick={this.modeHandler}>Toggle Mode</button>
+      {this.state.showPosts ? (<Suspense fallback={<div>Loading...</div>}>
+          <Posts />
+          </Suspense>) : <User />}
+      </React.Fragment>
+
       //<BrowserRouter>
       //  <React.Fragment>
       //    <nav>
